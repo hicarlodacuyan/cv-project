@@ -8,13 +8,25 @@ class Main extends Component {
         super(props);
 
         this.state = {
-            firstName: '',
-            lastName: '',
-            title: '',
-            address: '',
-            phoneNumber: '',
+            firstName: '', 
+            lastName: '', 
+            title: '', 
+            address: '', 
+            phoneNumber: '', 
             email: '',
-            contactDetails: []
+            position: '',
+            company: '', 
+            location: '',
+            experienceFrom: '', 
+            experienceTo: '',
+            institution: '', 
+            fieldOfStudy: '', 
+            educationLocation: '', 
+            educationFrom: '', 
+            educationTo: '',
+            contactDetails: [],
+            experience: [],
+            education: []
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -33,16 +45,14 @@ class Main extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const { firstName, lastName, title, address, phoneNumber, email } = this.state;
+        const { firstName, lastName, title, address, phoneNumber, email }   = this.state;
+        const { position, company, location, experienceFrom, experienceTo } = this.state;
+        const { institution, fieldOfStudy, educationLocation, educationFrom, educationTo } = this.state;
 
         this.setState({
-            firstName: '',
-            lastName: '',
-            title: '',
-            address: '',
-            phoneNumber: '',
-            email: '',
-            contactDetails: [firstName, lastName, title, address, phoneNumber, email] 
+            contactDetails: [firstName, lastName, title, address, phoneNumber, email],
+            experience: [position, company, location, experienceFrom, experienceTo],
+            education: [institution, fieldOfStudy, educationLocation, educationFrom, educationTo]
         });
     }
 

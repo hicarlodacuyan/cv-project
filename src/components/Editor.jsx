@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-constructor */
 import './Editor.css';
 import React, { Component } from 'react';
+// import ExperienceInputs from './ExperienceInputs';
 
 class Editor extends Component {
     constructor(props) {
@@ -60,31 +61,107 @@ class Editor extends Component {
                             placeholder='Email' 
                             required />
                     </div>
-                    <input className='add-btn' type="submit" value="Add" />
+                    <input className='submit-btn' type="submit" value="Submit" />
                 </form>
 
-                <form className='experience'>
+                <form className='experience' onSubmit={this.props.submitHandler}>
                     <h3 className='experience-title'>Experience</h3>
                     <div className='experience-inputs'>
-                        <input className='position' type="text" placeholder='Position' />
-                        <input className='company' type="text" placeholder='Company' />
-                        <input className='experience-location' type="text" placeholder='Location' />
-                        <input className='experience-from' type="date" placeholder='From' />
-                        <input className='experience-to' type="date" placeholder='To' />
+                        <input
+                            className='position' 
+                            type="text"
+                            name='position'
+                            value={this.props.state.position}
+                            onChange={this.props.changeHandler} 
+                            placeholder='Position' 
+                            required />
+                        <input 
+                            className='company' 
+                            type="text"
+                            name='company'
+                            value={this.props.state.company}
+                            onChange={this.props.changeHandler}  
+                            placeholder='Company'
+                            required />
+                        <input 
+                            className='experience-location' 
+                            type="text"
+                            name='location'
+                            value={this.props.state.experienceLocation}
+                            onChange={this.props.changeHandler} 
+                            placeholder='Location'
+                            required />
+                        <input 
+                            className='experience-from' 
+                            type="date"
+                            name='experienceFrom'
+                            value={this.props.state.experienceFrom}
+                            onChange={this.props.changeHandler}
+                            placeholder='From'
+                            required />
+                        <input 
+                            className='experience-to' 
+                            type="date"
+                            name='experienceTo'
+                            value={this.props.state.experienceTo}
+                            onChange={this.props.changeHandler}
+                            placeholder='To'
+                            required />
                     </div>
-                    <input className='add-btn' type="submit" value="Add" />
+                    <div className='experience-btns'>
+                        <input className='add-btn' type="button" value="Add" />
+                        <input className='submit-btn' type="submit" value="Submit" />
+                    </div>
                 </form>
 
-                <form className='education'>
+                <form className='education' onSubmit={this.props.submitHandler}>
                     <h3 className='education-title'>Education</h3>
                     <div className='education-inputs'>
-                        <input className='institution' type="text" placeholder='Institution' />
-                        <input className='field-of-study' type="text" placeholder='Field of Study' />
-                        <input className='education-location' type="text" placeholder='Location' />
-                        <input className='education-from' type="date" placeholder='From' />
-                        <input className='education-to' type="date" placeholder='To' />
+                        <input 
+                            className='institution' 
+                            type="text"
+                            name='institution'
+                            value={this.props.state.institution}
+                            onChange={this.props.changeHandler}
+                            placeholder='Institution'
+                            required />
+                        <input 
+                            className='field-of-study' 
+                            type="text"
+                            name='fieldOfStudy'
+                            value={this.props.state.fieldOfStudy}
+                            onChange={this.props.changeHandler} 
+                            placeholder='Field of Study'
+                            required />
+                        <input 
+                            className='education-location' 
+                            type="text"
+                            name='educationLocation'
+                            value={this.props.state.educationLocation}
+                            onChange={this.props.changeHandler} 
+                            placeholder='Location'
+                            required />
+                        <input 
+                            className='education-from' 
+                            type="date"
+                            name='educationFrom'
+                            value={this.props.state.educationFrom}
+                            onChange={this.props.changeHandler} 
+                            placeholder='From'
+                            required />
+                        <input 
+                            className='education-to' 
+                            type="date"
+                            name='educationTo'
+                            value={this.props.state.educationTo}
+                            onChange={this.props.changeHandler}  
+                            placeholder='To'
+                            required />
                     </div>
-                    <input className='add-btn' type="submit" value="Add" />
+                    <div className='education-btns'>
+                        <input className='add-btn' type="button" value="Add" />
+                        <input className='submit-btn' type="submit" value="Submit" />
+                    </div>
                 </form>
             </section>
         );
