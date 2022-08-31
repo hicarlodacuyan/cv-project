@@ -1,7 +1,12 @@
+/* eslint-disable no-useless-constructor */
 import './Editor.css';
 import React, { Component } from 'react';
 
 class Editor extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <section className="editor-container">
@@ -9,15 +14,51 @@ class Editor extends Component {
                     <h2 className='editor-title'>Editor</h2>
                     <p className='editor-para'>Completely fill-out the fields for best results</p>
                 </div>
-                <form className='contact-details'>
+                <form className='contact-details' onSubmit={this.props.submitHandler}>
                     <h3 className='contact-title'>Contact details</h3>
                     <div className='contact-inputs'>
-                        <input type="text" placeholder='First name' />
-                        <input type="text" placeholder='Last name' />
-                        <input type="text" placeholder='Title' />
-                        <input type="text" placeholder='Address' />
-                        <input type="number" placeholder='Phone number' />
-                        <input type="email" placeholder='Email' />
+                        <input 
+                            type="text"  
+                            name="firstName" 
+                            placeholder='First name' 
+                            value={this.props.state.firstName} 
+                            onChange={this.props.changeHandler}
+                            required />
+                        <input 
+                            type="text"  
+                            name="lastName" 
+                            placeholder='Last name'
+                            value={this.props.state.lastName} 
+                            onChange={this.props.changeHandler}
+                            required />
+                        <input 
+                            type="text"  
+                            name="title" 
+                            value={this.props.state.title} 
+                            onChange={this.props.changeHandler} 
+                            placeholder='Title' 
+                            required />
+                        <input 
+                            type="text"  
+                            name='address' 
+                            value={this.props.state.address} 
+                            onChange={this.props.changeHandler} 
+                            placeholder='Address' 
+                            required />
+                        <input 
+                            type="number" 
+                            name='phoneNumber' 
+                            value={this.props.state.phoneNumber} 
+                            onChange={this.props.changeHandler} 
+                            placeholder='Phone number' 
+                            required />
+                        <input 
+                            type="email" 
+                            name='email' 
+                            value={this.props.state.email} 
+                            onChange={this.props.changeHandler} 
+                            placeholder='Email' 
+                            required />
                     </div>
                     <input className='add-btn' type="submit" value="Add" />
                 </form>
