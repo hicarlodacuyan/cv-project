@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Editor from './Editor';
 import Preview from './Preview';
 
-const Main = (props) => {
+const Main = () => {
     const [state, setState] = useState({
         contactDetails: {
             firstName: '',
